@@ -3,12 +3,18 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
 
     if orientacao == "vertical":
         for i in range(tamanho):
-            posicoes.append(linha + i, coluna)
+            posicoes.append([linha + i, coluna])
 
-    if orientacao == "horizontal":
+    elif orientacao == "horizontal":
         for i in range(tamanho):
-            posicoes.append(linha, coluna + i)
+            posicoes.append([linha, coluna + i])
 
     return posicoes
 
 
+linha = 2
+coluna = 4
+orientacao = "vertical"
+tamanho = 3
+
+print(define_posicoes(linha, coluna, orientacao, tamanho))
