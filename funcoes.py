@@ -58,4 +58,4 @@ def afundados(frota, tabuleiro):
 
             if all(estado == "X" for estado in x):
                 n_afundas += 1
-    return n_afundas
+    return n_afundas 
