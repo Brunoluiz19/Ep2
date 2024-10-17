@@ -66,7 +66,7 @@ def posicao_valida(frota, linha, coluna, orientacao, tamanho):
 
     for posicao in posicoes:
         linha_pos, coluna_pos =  posicao
-        if linha_pos < 0 or linha_pos >= 10 or coluna_pos < 0 or coluna_pos >= 10:
+        if not (0 <= linha_pos < 10) or not (0 <= coluna_pos < 10):
             return False 
     
     for navios in frota.values():
