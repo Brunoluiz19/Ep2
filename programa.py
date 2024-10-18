@@ -1,3 +1,4 @@
+from funcoes import define_posicoes, preenche_frota, posicao_valida
 def main():
     frota = {
         "porta-aviões": [],
