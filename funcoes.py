@@ -36,7 +36,7 @@ def posiciona_frota(frota): #Ex4
                 tabuleiro[linha][coluna] = 1
     return tabuleiro
 
-def afundados(frota, tabuleiro):
+def afundados(frota, tabuleiro):#Ex5
     
     n_tam = {
         "porta-aviões": 4,
@@ -60,7 +60,7 @@ def afundados(frota, tabuleiro):
                 n_afundas += 1
     return n_afundas
 
-def posicao_valida(frota, linha, coluna, orientacao, tamanho):
+def posicao_valida(frota, linha, coluna, orientacao, tamanho):#Ex6
     
     posicoes = define_posicoes(linha, coluna, orientacao, tamanho)
 
@@ -78,3 +78,4 @@ def posicao_valida(frota, linha, coluna, orientacao, tamanho):
 
    
     return True
+
