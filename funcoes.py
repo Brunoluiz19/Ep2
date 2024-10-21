@@ -11,14 +11,14 @@ def define_posicoes(linha, coluna, orientacao, tamanho): #Ex1
 
     return posicoes
 
-def preenche_frota(frota, navio, linha, coluna, orientacao, tamanho): #Ex2
-    pos = define_posicoes(linha, coluna, orientacao, tamanho)
-    if navio in frota.keys():
-        frota[navio].append(pos)
-    else:
-        frota[navio] = [pos]
-
-    return frota
+def preenche_frota(frota, navio, linha, coluna, orientacao, tamanho):
+    posicoes = []
+    for i in range(tamanho):
+        if orientacao == "horizontal":
+            posicoes.append([linha, coluna + i])
+        else:  
+            posicoes.append([linha + i, coluna])
+    frota[navio].append(posicoes)
 
 def faz_jogada(tabuleiro, linha, coluna): #Ex3
     if tabuleiro[linha][coluna] == 1:
@@ -60,22 +60,18 @@ def afundados(frota, tabuleiro):#Ex5
                 n_afundas += 1
     return n_afundas
 
-def posicao_valida(frota, linha, coluna, orientacao, tamanho):#Ex6
-    
-    posicoes = define_posicoes(linha, coluna, orientacao, tamanho)
-
-    
-    for linha_pos, coluna_pos in posicoes:
-        if not (0 <= linha_pos < 10) or not (0 <= coluna_pos < 10):
+def posicao_valida(frota, linha, coluna, orientacao, tamanho):
+    if orientacao == "horizontal":
+        if coluna + tamanho > 10:  
             return False
-    
-   
-    for navios in frota.values():
-        for navio in navios:
-            for posicao_ocupada in navio:
-                if posicao_ocupada in posicoes:
-                    return False
-
-   
+        for i in range(tamanho):
+            if any([linha == x[0] and coluna + i == x[1] for navio in frota.values() for x in navio]):
+                return False  
+    else:  
+        if linha + tamanho > 10: 
+            return False
+        for i in range(tamanho):
+            if any([linha + i == x[0] and coluna == x[1] for navio in frota.values() for x in navio]):
+                return False  
     return True
 
