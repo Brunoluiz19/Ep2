@@ -77,12 +77,22 @@ def main():
         return tabuleiro
 
     def faz_jogada(tabuleiro, linha, coluna):
-        
-        pass
+    
+        if tabuleiro[linha][coluna] == 1:
+            tabuleiro[linha][coluna] = "X"  
+        else:
+            tabuleiro[linha][coluna] = "-"  
+        return tabuleiro
 
     def afundados(frota, tabuleiro):
+        afundados = 0
+        for navios in frota.values():
+            for posicoes in navios:
+                
+                if all(tabuleiro[linha][coluna] == "X" for linha, coluna in posicoes):
+                    afundados += 1
         
-        pass
+        return afundados == sum(len(navios) for navios in frota.values())
 
     def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
         texto = ''
