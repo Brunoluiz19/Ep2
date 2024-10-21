@@ -88,7 +88,7 @@ def main():
 
 
     tabuleiro_oponente = posiciona_frota(frota_oponente)
-    tabuleiro_jogador = posiciona_frota(frota_jogador)  
+    tabuleiro_jogador = posiciona_frota(frota)
 
     
     jogando = True
