@@ -22,27 +22,25 @@ def main():
         quantidade = 5 - tamanho  
         for _ in range(quantidade):
             while True:
-                try:
-                    
-                    linha = int(input("Linha: "))
-                    coluna = int(input("Coluna: "))
+                print(f"Insira as informações referentes ao navio {navio} que possui tamanho {tamanho}")
+                linha = int(input("Linha: "))
+                coluna = int(input("Coluna: "))
+                
+                
+                if navio != "submarino":
+                    orientacao = int(input("[1] Vertical [2] Horizontal > "))
+                    orientacao_str = "vertical" if orientacao == 1 else "horizontal"
+                else:
+                    orientacao_str = "vertical"  
 
-                    
-                    if navio != "submarino":
-                        orientacao = int(input("[1] Vertical [2] Horizontal > "))
-                        orientacao_str = "vertical" if orientacao == 1 else "horizontal"
-                    else:
-                        orientacao_str = "vertical" 
 
-                    
-                    if posicao_valida(frota, linha, coluna, orientacao_str, tamanho):
-                        preenche_frota(frota, navio, linha, coluna, orientacao_str, tamanho)
-                        break
-                    else:
-                        print("Esta posição não está válida!")
-                except ValueError:
-                    print("Por favor, insira números inteiros válidos.")
-        
+                if posicao_valida(frota, linha, coluna, orientacao_str, tamanho):
+                    preenche_frota(frota, navio, linha, coluna, orientacao_str, tamanho)
+                    break
+                else:
+                    print("Esta posição não está válida!")
+
+    
     
     frota_oponente = {
         'porta-aviões': [
