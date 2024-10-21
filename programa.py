@@ -33,12 +33,12 @@ def main():
                 else:
                     orientacao_str = "vertical"  
 
-                
+
                 if posicao_valida(frota, linha, coluna, orientacao_str, tamanho):
                     preenche_frota(frota, navio, linha, coluna, orientacao_str, tamanho)
                     break
                 else:
-                    print("Esta posição não está válida! Tente novamente.")
+                    print("Esta posição não está válida!")
 
     
     print(frota)
